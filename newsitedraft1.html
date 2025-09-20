@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solvara Prime Star System</title>
+  <link rel="stylesheet" href="styles15.css">
+</head>
+<body>
+  <!-- Hero Page -->
+  <div class="screen hero-page">
+    <!-- Grid background -->
+    <div class="grid-bg"></div>
+    
+    <!-- Cosmic elements -->
+    <div class="cosmic-dust"></div>
+    <div class="galaxy-swirl"></div>
+    <div class="nebula-cloud nebula-1"></div>
+    <div class="nebula-cloud nebula-2"></div>
+    <div class="asteroid asteroid-1"></div>
+    <div class="asteroid asteroid-2"></div>
+    
+    <!-- Multiple shooting stars -->
+    <div class="shooting-star"></div>
+    <div class="shooting-star shooting-star-2"></div>
+    <div class="shooting-star shooting-star-3"></div>
+    <div class="shooting-star shooting-star-4"></div>
+    <div class="shooting-star shooting-star-5"></div>
+    
+    <!-- Navigation -->
+    <nav class="nav-menu">
+      <a href="#music" class="nav-link" style="color: #F5F5F5;">MUSIC</a>
+      <a href="#bio" class="nav-link" style="color: #F5F5F5;">STORY</a>
+      <a href="#gear" class="nav-link" style="color: #F5F5F5;">GEAR</a>
+      <a href="#contact" class="nav-link" style="color: #F5F5F5;">CONTACT</a>
+    </nav>
+    
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <!-- Logo -->
+      <img src="./starmap-logo.svg" class="hero-logo" alt="Seth Power Logo">
+      
+      <!-- Main Header -->
+      <h1 class="main-header" style="color: #F5F5F5;">WELCOME TO THE SIGNAL</h1>
+      
+      <!-- Signal Section -->
+      <div class="signal-section">
+        <div class="signal-label" style="color: #89CFC0;">INCOMING SIGNAL</div>
+        <div class="signal-track">
+          <span class="track-name">The Bed's Too Big Without You</span>
+          <button class="signal-btn" id="play-btn" style="color: #D8A48F; border-color: rgba(216, 164, 143, 0.6); background: transparent;">▶ LISTEN</button>
+        </div>
+        <audio id="audio-player" style="display: none;">
+          <source src="https://res.cloudinary.com/duynyjs6q/video/upload/v1757220300/01_The_Bed_s_Too_Big_Without_You_h8bssq.m4a" type="audio/mp4">
+        </audio>
+      </div>
+      
+      <!-- Newsletter Button -->
+      <button class="newsletter-btn" id="newsletter-btn" style="background: #0F3460; border: 2px solid #89CFC0; color: #89CFC0;">RECEIVE TRANSMISSIONS</button>
+      
+      <!-- Newsletter Modal (hidden by default) -->
+      <div class="newsletter-popup" id="newsletter-popup" style="display: none;">
+        <div class="popup-content">
+          <button class="close-btn" id="close-popup">×</button>
+          <div class="popup-form-wrapper">
+            <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
+            <iframe src="https://subscribe-forms.beehiiv.com/09cd34fb-c841-45dd-968e-0ce28e8db89e" 
+                    class="beehiiv-embed" 
+                    data-test-id="beehiiv-embed" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    style="width: 450px; height: 240px; margin: 0; border-radius: 0px 0px 0px 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Coordinates Display (smaller, bottom corner) -->
+    <div class="coordinates-display" style="border-color: rgba(137, 207, 192, 0.3);">
+      <div class="coordinates-title" style="color: #89CFC0;">POSITION</div>
+      <div id="coord-x" style="color: #89CFC0;">X: 0</div>
+      <div id="coord-y" style="color: #89CFC0;">Y: 0</div>
+    </div>
+    
+    <!-- The Station (in orbit, smaller) -->
+    <div class="station-container" id="station" data-name="Seth Power Station" data-desc="Creative HQ & Digital Outpost">
+      <div class="station">
+        <div class="station-core"></div>
+        <div class="station-ring"></div>
+        <div class="station-tower">
+          <div class="station-tower-top"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Player (retro rocket ship) -->
+    <div class="player" id="player">
+      <div class="rocket-body"></div>
+      <div class="rocket-nose"></div>
+      <div class="rocket-window"></div>
+      <div class="rocket-fin-left"></div>
+      <div class="rocket-fin-right"></div>
+      <div class="rocket-exhaust"></div>
+    </div>
+  </div>
+  
+  <!-- Music Section -->
+  <section class="music-section" id="music">
+    <!-- Cosmic elements for music page -->
+    <div class="cosmic-dust-music"></div>
+    <div class="radio-static"></div>
+    
+    <div class="music-container">
+      <h2 class="section-header" style="color: #89CFC0;">SIGNAL SCANNER</h2>
+      
+      <!-- Vintage Radio Interface -->
+      <div class="radio-interface" style="background: #292929; border: 2px solid rgba(137, 207, 192, 0.3);">
+        <!-- Radio Display -->
+        <div class="radio-display">
+          <div class="radio-brand">SETH POWER SYSTEMS</div>
+          <div class="frequency-display">
+            <div class="frequency-number" id="frequency-display" style="color: #89CFC0;">88.1</div>
+            <div class="frequency-unit">MHz</div>
+          </div>
+          <div class="station-info">
+            <div class="station-name" id="station-name">THE BED'S TOO BIG</div>
+            <div class="signal-strength">
+              <span class="signal-bar active"></span>
+              <span class="signal-bar active"></span>
+              <span class="signal-bar active"></span>
+              <span class="signal-bar"></span>
+              <span class="signal-bar"></span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tuner Dial -->
+        <div class="tuner-section">
+          <div class="tuner-scale">
+            <div class="scale-marks"></div>
+            <div class="tuner-needle" id="tuner-needle"></div>
+          </div>
+          <div class="tuner-control">
+            <div class="tuner-label">FREQUENCY TUNER</div>
+            <input type="range" class="frequency-dial" id="frequency-dial" min="0" max="4" value="0" step="1">
+            <div class="station-markers">
+              <span class="marker" data-freq="88.1">88.1</span>
+              <span class="marker" data-freq="91.5">91.5</span>
+              <span class="marker" data-freq="96.3">96.3</span>
+              <span class="marker" data-freq="101.7">101.7</span>
+              <span class="marker" data-freq="107.9">107.9</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Audio Player -->
+        <div class="radio-player">
+          <button class="radio-play-btn" id="radio-play" style="background: #89CFC0; color: #0A0A0A; border: none;">▶ PLAY</button>
+          <div class="volume-control">
+            <label for="volume">VOLUME</label>
+            <input type="range" id="volume" min="0" max="100" value="70">
+          </div>
+          <audio id="radio-audio" preload="none">
+            <source src="https://res.cloudinary.com/duynyjs6q/video/upload/v1757220300/01_The_Bed_s_Too_Big_Without_You_h8bssq.m4a" type="audio/mp4">
+          </audio>
+        </div>
+        
+        <!-- Station List -->
+        <div class="station-list">
+          <div class="list-header">DETECTED SIGNALS</div>
+          <div class="stations">
+            <div class="station-item active" data-freq="88.1" data-song="The Bed's Too Big Without You">
+              <span class="freq">88.1 MHz</span>
+              <span class="song-title">The Bed's Too Big Without You</span>
+            </div>
+            <div class="station-item" data-freq="91.5" data-song="Signal Lost">
+              <span class="freq">91.5 MHz</span>
+              <span class="song-title">Coming Soon</span>
+            </div>
+            <div class="station-item" data-freq="96.3" data-song="Static">
+              <span class="freq">96.3 MHz</span>
+              <span class="song-title">Coming Soon</span>
+            </div>
+            <div class="station-item" data-freq="101.7" data-song="Interference">
+              <span class="freq">101.7 MHz</span>
+              <span class="song-title">Coming Soon</span>
+            </div>
+            <div class="station-item" data-freq="107.9" data-song="Dead Air">
+              <span class="freq">107.9 MHz</span>
+              <span class="song-title">Coming Soon</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- CTAs -->
+        <div class="music-ctas">
+          <button class="listen-everywhere-btn" style="background: #0F3460; border: 2px solid #89CFC0; color: #89CFC0;">
+            <span class="btn-icon">🎧</span>
+            LISTEN EVERYWHERE
+          </button>
+          <button class="early-access-btn" style="background: #0F3460; border: 2px solid #89CFC0; color: #89CFC0;">
+            <span class="btn-icon">📡</span>
+            EARLY ACCESS CHANNEL
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Bio Section -->
+    <section class="bio-section" id="bio">
+      <!-- Cosmic elements for bio page -->
+      <div class="cosmic-dust-bio"></div>
+      <div class="galaxy-swirl-bio"></div>
+      <div class="nebula-cloud nebula-3"></div>
+      <div class="nebula-cloud nebula-4"></div>
+      <div class="asteroid asteroid-3"></div>
+      <div class="asteroid asteroid-4"></div>
+      <div class="asteroid asteroid-5"></div>
+      
+      <!-- Shooting stars for bio page -->
+      <div class="shooting-star shooting-star-bio-1"></div>
+      <div class="shooting-star shooting-star-bio-2"></div>
+      <div class="shooting-star shooting-star-bio-3"></div>
+      
+      <div class="mission-control-container">
+        <h2 class="section-header" style="color: #89CFC0;">TRANSMISSION SOURCE</h2>
+        
+        <!-- Main Mission Display -->
+        <div class="mission-display">
+          <!-- Left Panel: Visual Feed -->
+          <div class="visual-feed">
+            <div class="feed-header">
+              <span class="feed-label">VISUAL FEED</span>
+              <div class="feed-controls">
+                <button class="feed-btn" id="prev-feed" style="color: #D8A48F; border-color: #D8A48F;">◀</button>
+                <span class="feed-counter" id="feed-counter" style="color: #89CFC0;">01 / 05</span>
+                <button class="feed-btn" id="next-feed" style="color: #D8A48F; border-color: #D8A48F;">▶</button>
+              </div>
+            </div>
+            <div class="feed-screen">
+              <img src="https://res.cloudinary.com/duynyjs6q/image/upload/v1758120403/IMG_5575_3_k4cbrk.jpg" alt="Mission Visual" class="feed-image" id="feed-image">
+              <div class="scan-line"></div>
+            </div>
+            <div class="feed-status">
+              <div class="status-row">
+                <span class="status-label">SIGNAL</span>
+                <div class="status-bar">
+                  <div class="status-fill"></div>
+                </div>
+              </div>
+              <div class="status-row">
+                <span class="status-label">CLARITY</span>
+                <div class="status-bar">
+                  <div class="status-fill"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right Panel: Mission Brief -->
+          <div class="mission-brief">
+            <div class="brief-header">
+              <span class="brief-label">OPERATOR PROFILE</span>
+              <span class="brief-id">ID: SP-001</span>
+            </div>
+            
+            <div class="brief-content">
+              <div class="data-section">
+                <h3 class="section-title">SETH POWER</h3>
+                <div class="data-field">
+                  <span class="field-label" style="color: #333333;">ROLE:</span>
+                  <span class="field-value" style="color: #F5F5F5;">Creative Director / Musician</span>
+                </div>
+                <div class="data-field">
+                  <span class="field-label">STATUS:</span>
+                  <span class="field-value">Transmitting</span>
+                </div>
+                <div class="data-field">
+                  <span class="field-label">LOCATION:</span>
+                  <span class="field-value">Los Angeles, Earth</span>
+                </div>
+              </div>
+              
+              <div class="data-section">
+                <div class="section-title">MISSION STATEMENT</div>
+                <p class="mission-text">
+                  Multi-dimensional signal operator specializing in sonic frequencies and visual transmissions. 
+                  Currently exploring the intersection of analog warmth and digital precision through immersive audio-visual experiences.
+                </p>
+              </div>
+              
+              <div class="data-section">
+                <div class="transmission-buttons">
+                  <button class="transmission-btn" id="mission-prev">◀ PREVIOUS</button>
+                  <button class="transmission-btn primary" id="mission-next">NEXT ▶</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Gear Section -->
+    <section class="gear-section" id="gear">
+      <!-- Cosmic elements for gear page -->
+      <div class="cosmic-dust-gear"></div>
+      
+      <div class="gear-container">
+        <h2 class="section-header" style="color: #89CFC0;">GEAR</h2>
+        <p class="section-subheader" style="color: #F5F5F5;">EACH PIECE CARRIES A SIGNAL</p>
+        
+        <!-- Transmission Equipment Grid -->
+        <div class="equipment-grid">
+          <!-- Signal Hoodie -->
+          <div class="equipment-item">
+            <div class="item-tag" style="background: #D8A48F; color: #0A0A0A;">NEW</div>
+            <div class="item-image">
+              <img src="https://via.placeholder.com/300x400/0a0a0a/89CFC0?text=SIGNAL+HOODIE" alt="Signal Hoodie">
+            </div>
+            <div class="item-info">
+              <h3 class="item-name">SIGNAL HOODIE</h3>
+              <p class="item-price" style="color: #89CFC0;">$65.00</p>
+              <button class="item-order-btn" style="background: #89CFC0; color: #0A0A0A; border: none;">ORDER</button>
+            </div>
+          </div>
+          
+          <!-- Echo Shirt -->
+          <div class="equipment-item">
+            <div class="item-image">
+              <img src="https://via.placeholder.com/300x400/0a0a0a/89CFC0?text=ECHO+SHIRT" alt="Echo Shirt">
+            </div>
+            <div class="item-info">
+              <h3 class="item-name">ECHO SHIRT</h3>
+              <p class="item-price" style="color: #89CFC0;">$35.00</p>
+              <button class="item-order-btn" style="background: #89CFC0; color: #0A0A0A; border: none;">ORDER</button>
+            </div>
+          </div>
+          
+          <!-- Transmission Cap -->
+          <div class="equipment-item">
+            <div class="item-image">
+              <img src="https://via.placeholder.com/300x400/0a0a0a/89CFC0?text=TRANSMISSION+CAP" alt="Transmission Cap">
+            </div>
+            <div class="item-info">
+              <h3 class="item-name">TRANSMISSION CAP</h3>
+              <p class="item-price" style="color: #89CFC0;">$28.00</p>
+              <button class="item-order-btn" style="background: #89CFC0; color: #0A0A0A; border: none;">ORDER</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+      <!-- Cosmic elements for contact page -->
+      <div class="cosmic-dust-contact"></div>
+      <div class="nebula-cloud nebula-5"></div>
+      <div class="asteroid asteroid-6"></div>
+      
+      <div class="contact-container">
+        <h2 class="section-header" style="color: #89CFC0;">TRANSMISSION TERMINAL</h2>
+        <div class="crt-monitor">
+          <div class="monitor-bezel" style="background: #292929; border: 2px solid rgba(137, 207, 192, 0.3);">
+            <div class="monitor-label" style="color: #89CFC0;">SYSTEM READY</div>
+            <div class="monitor-id">UNIT 003</div>
+            <div class="monitor-screen">
+              <div class="screen-overlay"></div>
+              <div class="form-content">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScswAn2XbPma738lEo06C_9Iyu1-QvlDTpWMqMLWT3B8Nq_8Q/viewform?embedded=true" width="640" height="763" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+              </div>
+              <div class="scanlines"></div>
+            </div>
+            <div class="monitor-controls">
+              <div class="control-light active" style="background: #89CFC0;"></div>
+              <div class="control-label">TRANSMITTING</div>
+              <div class="control-light"></div>
+            </div>
+            <div class="monitor-vents">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="monitor-stand"></div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer Contact Info -->
+    <footer class="contact-footer">
+      <div class="contact-item">
+        <div class="contact-icon" style="color: #D8A48F;">📞</div>
+        <div class="contact-label" style="color: #333333;">COMM FREQUENCY</div>
+        <div class="contact-info" style="color: #89CFC0;">+1 (601) 539-9602</div>
+      </div>
+      
+      <div class="contact-item">
+        <div class="contact-icon" style="color: #D8A48F;">📧</div>
+        <div class="contact-label" style="color: #333333;">TRANSMISSION LINE</div>
+        <div class="contact-info" style="color: #89CFC0;">seth@sethpower.world</div>
+      </div>
+      
+      <div class="contact-item">
+        <div class="contact-icon" style="color: #D8A48F;">🌐</div>
+        <div class="contact-label" style="color: #333333;">BASE LOCATION</div>
+        <div class="contact-info" style="color: #89CFC0;">Brandon, Mississippi</div>
+      </div>
+    </footer>
+
+  <script src="starmap.js"></script>
+</body>
+</html>
